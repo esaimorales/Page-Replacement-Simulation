@@ -7,7 +7,8 @@ from datetime import datetime
 
 # set cache size
 CACHE_SIZE = int(sys.argv[1])
-queue = []                  # simulates cache
+# simulates cache
+queue = []
 page_faults = 0
 numbers_per_file = 0
 
@@ -26,19 +27,23 @@ for line in sys.stdin:
 
     # value exists in queue
     if value in queue:
-        queue.remove(value) # remove item, place in the front
+        # remove item, place in the front
+        queue.remove(value)
         queue.append(value)
 
     # value not in queue and space available
     elif value not in queue and len(queue) < CACHE_SIZE:
-        queue.append(value) #add to front of queue
+        #add to front of queue
+        queue.append(value)
         print value
         page_faults+= 1
 
     # value not in queue and no space available
     elif (value not in queue) and (len(queue) == CACHE_SIZE):
-        queue.pop(0)    # remove last item
-        queue.append(value) # add new value to front 
+        # remove last item
+        queue.pop(0)
+        # add new value to front
+        queue.append(value) 
         print value
         page_faults+= 1
 

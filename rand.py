@@ -7,7 +7,8 @@ import random
 
 # declare global variables
 CACHE_SIZE = int(sys.argv[1])
-queue = []                       # simulates the cache
+# simulates the cache
+queue = []
 page_faults = 0
 numbers_per_file = 0
 
@@ -18,11 +19,13 @@ for line in sys.stdin:
 
     # handle non-digit line entries
     try:
-        value = int(stripped)   # try casting line to integer
+        # try casting line to integer
+        value = int(stripped)
         numbers_per_file+= 1
 
     # skip over line
-    except ValueError:          # if can't cast entry, then skip over line
+    except ValueError:
+        # if can't cast entry, then skip over line
         continue
 
     # when value is not in queue

@@ -30,24 +30,31 @@ for line in sys.stdin:
         tup = queue.pop(index)
         tup[1]+= 1
         queue.append(tup)
-        queue = sorted(queue, key= lambda x: x[1]) # sort by frequency
+        # sort by frequency
+        queue = sorted(queue, key= lambda x: x[1])
 
     # if not in cache
     else:
         # if space available
         if len(queue) < CACHE_SIZE:
-            queue.append([value, 1]) # add to front
-            queue = sorted(queue, key= lambda x: x[1])  # sort by frequency
+            # add to front
+            queue.append([value, 1])
+            # sort by frequency
+            queue = sorted(queue, key= lambda x: x[1])
             print value
             page_faults+=1
 
         # if no space available
         elif len(queue) == CACHE_SIZE:
-            queue.pop(0) # remove least frequent
-            queue.append([value, 1]) #add to front 
-            queue = sorted(queue, key= lambda x: x[1])  # sort by frequency
+            # remove least frequent
+            queue.pop(0)
+            # add to front 
+            queue.append([value, 1])
+            # sort by frequency
+            queue = sorted(queue, key= lambda x: x[1])
             print value
-            page_faults+=1  # increase frequency value of item
+            # increase frequency value of item
+            page_faults+=1
 
 print >> sys.stderr, 'page faults: ', page_faults
 print >> sys.stderr, 'valid numbers in file: ', numbers_per_file
