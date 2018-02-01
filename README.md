@@ -7,6 +7,8 @@ Implementations for the following algorithms are provided:
 - _Second Chance_ (sc.py)
 - _Random_ (rand.py)
 
+A sample page call procedure is given in _numbers.txt_. 
+
 ## How to Run:
 ```
 python file_name.py CACHE_SIZE < numbers.txt
